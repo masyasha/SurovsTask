@@ -8,20 +8,32 @@ class Item
 public:
 	Item(string ItemName);
 	~Item();
-	int setParams(int quantity, int price, string value, int articul)
+	void setParams(int quantity, int price, string value, int articul)
 	{
-		quantity = quantity;
-		price = price;
-		articul = articul;
+		quan = quantity;
+		pr = price;
+		val = value;
+		art = articul;
+	}
 
-		return 0;
+	void getParams()
+	{
+		cout << ItemName << "\n{" << "\nQuantity: " << quan << "\nPrice: " << pr << "\nValue: " << val << "\nArticul: " << art << "\n}\n" << endl; 
+	}
+
+	void checkVars()
+	{
+		cout << "1: " << quan << endl;
+		cout << "2: " << pr << endl;
+		cout << "3: " << val << endl;
+		cout << "4: " << art << endl;
 	}
 
 private:
 	string ItemName;
-	int quantity;
-	int price;
-	string value;
-	int articul;
+	int quan;
+	int pr;
+	string val;
+	int art;
 };
 
