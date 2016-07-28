@@ -8,10 +8,10 @@ using namespace std;
 int main()
 {
 	Item Masik("Dog");
-	Item Brother("Bro");
+	Item Brother("Parents");
 	Masik.setParams(1, 1000, "rubles", 127276);
 	Masik.getParams();
-	Brother.setParams(2, 15000, "dollars", 108108);
+	Brother.setParams(2, 1, "infinity", 108108);
 	Brother.getParams();
 
 	system("pause");

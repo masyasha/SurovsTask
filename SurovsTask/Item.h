@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <fstream>
 #include <string>
 using namespace std;
 
@@ -14,11 +15,21 @@ public:
 		pr = price;
 		val = value;
 		art = articul;
+
+		ofstream ItemStockingWR("ItemStocking.txt", ios_base::app);
+		ItemStockingWR << "***" + ItemName + "***" << "\n{" << "\nQuantity: " << quan << "\nPrice: " << pr << "\nValue: " << val << "\nArticul: " << art << "\n}\n" << endl;
+		ItemStockingWR.close();
 	}
 
 	void getParams()
 	{
-		cout << ItemName << "\n{" << "\nQuantity: " << quan << "\nPrice: " << pr << "\nValue: " << val << "\nArticul: " << art << "\n}\n" << endl; 
+		ifstream ItemStockingRD("ItemStocking.txt", ios_base::in);
+		string str;
+		while (getline(ItemStockingRD, str))
+		{
+			cout << str << endl;
+		}
+		ItemStockingRD.close();
 	}
 
 	void checkVars()
