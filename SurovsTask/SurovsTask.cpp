@@ -45,11 +45,29 @@ void menuItems()
 
 	cout << "\n---------------------------------------\nMenu:\n    1. View existed Items\n    2. Add a new Item\n    3. Exit" << endl;
 	cout << ": ";
-	cin >> menu;
+	try
+	{
+		cin >> menu;
+		if (!cin) throw 1;
+	}
+	catch (int x)
+	{
+		cout << "\nInput Error " << x << ":\nNot an integer!" << "\nApp has to be closed." << endl;
+		system("pause");
+		exit(true);
+	}
 	cout << "---------------------------------------\n" << endl;
-	if (menu == 1) showItems();
-	else if (menu == 2) addItem();
-	else if (menu == 3) exit(true);
+	try
+	{
+		if (menu == 1) showItems();
+		else if (menu == 2) addItem();
+		else if (menu == 3) exit(true);
+		else throw 2;
+	}
+	catch (int y)
+	{
+		cout << "Input Error " << y << ":\nNot a stated variant!" << endl;
+	}
 }
 
 int main()
