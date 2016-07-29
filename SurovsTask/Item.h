@@ -9,15 +9,14 @@ class Item
 public:
 	Item(string ItemName);
 	~Item();
-	void setParams(int quantity, int price, string value, int articul)
+	void setParams(int quantity, double price, string value)
 	{
 		quan = quantity;
 		pr = price;
 		val = value;
-		art = articul;
 
 		ofstream ItemStockingWR("ItemStocking.txt", ios_base::app);
-		ItemStockingWR << "***" + ItemName + "***" << "\n{" << "\nQuantity: " << quan << "\nPrice: " << pr << "\nValue: " << val << "\nArticul: " << art << "\n}\n" << endl;
+		ItemStockingWR << "***" + ItemName + "***" << "\n{" << "\nQuantity: " << quan << "\nPrice: " << pr << "\nValue: " << val << "\n}\n" << endl;
 		ItemStockingWR.close();
 	}
 
@@ -32,19 +31,10 @@ public:
 		ItemStockingRD.close();
 	}
 
-	void checkVars()
-	{
-		cout << "1: " << quan << endl;
-		cout << "2: " << pr << endl;
-		cout << "3: " << val << endl;
-		cout << "4: " << art << endl;
-	}
-
 private:
 	string ItemName;
 	int quan;
-	int pr;
+	double pr;
 	string val;
-	int art;
 };
 
